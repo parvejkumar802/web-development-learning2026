@@ -3,12 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+
+    <title>My Developer Journey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 600px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #7dd3fc;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Hello, World! 👋</h1>
-    <p>I am learning web development.</p>
+    <div class="card">
+
+        <h1>Hi, I'm Parvej 👋</h1>
+
+        <p>
+            I'm learning web development and building my skills
+            one project at a time.
+        </p>
+
+        <a href="#" class="button">My Journey 🚀</a>
+
+    </div>
 
 </body>
 </html>
