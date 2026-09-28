@@ -3,79 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Developer Journey</title>
-
+    <title>Parvej Kumar - Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
             min-height: 100vh;
+        }
 
+        /* Navigation Bar */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .card {
-            width: 90%;
-            max-width: 600px;
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #38bdf8;
+            text-decoration: none;
         }
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        p {
+        nav a {
             color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.6;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
-        .button {
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 24px;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
             background: #38bdf8;
             color: #0f172a;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
         }
 
-        .button:hover {
-            background: #8B0000;
+        .btn-primary:hover {
+            background: #0ea5e9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+        }
+
+        .btn-secondary:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #38bdf8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: #1e293b;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #475569;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #38bdf8;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: #0f172a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .project-link {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #0ea5e9;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-box {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #475569;
+        }
+
+        .contact-box h4 {
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-box a:hover {
+            color: #38bdf8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid #475569;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Parvej 💻</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="card">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Parvej Kumar 👋</h1>
+            <p>A passionate web developer building beautiful and functional websites. I'm learning and growing one project at a time.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work 🚀</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch 📧</a>
+            </div>
+        </div>
+    </section>
 
-        <h1>Hi, I'm Parvej 👋</h1>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Web Development Enthusiast</h3>
+                    <p>I started my web development journey in 2026 and I'm excited to build projects that solve real problems. Currently, I'm mastering HTML, CSS, and JavaScript to create responsive and interactive websites.</p>
+                    <p>My goal is to become a skilled full-stack developer and help businesses bring their ideas to life through web development.</p>
+                </div>
+                <div>
+                    <h3>Skills & Technologies</h3>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Flexbox</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Web Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <p>
-            I'm learning web development and building my skills
-            one project at a time.
-        </p>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A modern, responsive portfolio website showcasing my work and skills.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
 
-        <a href="#" class="button">My Journey 🚀</a>
+            <div class="project-card">
+                <h3>Todo App</h3>
+                <p>A fully functional todo application with local storage integration.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
 
-    </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>Real-time weather app using APIs and dynamic content updates.</p>
+                <div class="project-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">API</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <div class="contact-info">
+                <div class="contact-box">
+                    <h4>📧 Email</h4>
+                    <a href="mailto:parvejkumar802@gmail.com">parvejkumar802@gmail.com</a>
+                </div>
+                <div class="contact-box">
+                    <h4>🔗 GitHub</h4>
+                    <a href="https://github.com/parvejkumar802" target="_blank">github.com/parvejkumar802</a>
+                </div>
+                <div class="contact-box">
+                    <h4>💼 LinkedIn</h4>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Parvej Kumar. All rights reserved. | Learning & Growing 🚀</p>
+    </footer>
 
 </body>
 </html>
